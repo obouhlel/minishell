@@ -51,6 +51,7 @@ void ft_free_strs(char ***strs)
         ft_free((void **)&(*strs)[i]);
         i++;
     }
+    free(*strs);
     *strs = NULL;
 }
 
