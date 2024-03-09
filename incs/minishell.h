@@ -6,6 +6,17 @@
 # include <unistd.h>
 # include <string.h>
 
+enum e_token
+{
+	CMD,
+	ARG,
+	PIPE,
+	HEREDOC,
+	REDIR_IN,
+	REDIR_OUT,
+	REDIR_APPEND
+};
+
 typedef struct s_envp
 {
 	char			*key;
@@ -21,7 +32,7 @@ typedef struct s_input
 }	t_input;
 
 int		minishell(t_envp *envp);
-t_input	*parsing(t_envp *envp);
+t_input	*parsing(char *line, t_envp *envp);
 
 // ENV
 t_envp	*envp_init(char **env);

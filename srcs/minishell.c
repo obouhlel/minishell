@@ -24,9 +24,9 @@ bool    is_empty(char *str)
 
 int minishell(t_envp *envp)
 {
-    char *line;
+    char    *line;
+    t_input *input;
 
-    (void)envp;
     while (1)
     {
         line = readline("> ");
@@ -38,6 +38,13 @@ int minishell(t_envp *envp)
             continue ;
         }
         add_history(line);
+        input = parsing(line, envp);
+        if (!input)
+        {
+            ft_free((void **)&line);
+            continue ;
+        }
+        ft_free((void **)&line);
     }
     return (EXIT_SUCCESS);
 }

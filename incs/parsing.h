@@ -6,4 +6,6 @@
 #include <stdbool.h>
 #include <string.h>
 
+char    have_invalid_token(char *line);
+
 #endif
