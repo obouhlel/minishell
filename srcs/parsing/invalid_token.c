@@ -34,7 +34,7 @@ char    have_invalid_token(char *line)
 {
     const char  *invalid_token = ";\\";
     char        c;
-    size_t  i;
+    size_t      i;
 
     i = 0;
     if (line[i] == '|')
