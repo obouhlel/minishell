@@ -4,10 +4,8 @@ static t_envp *last_envp(t_envp *envp)
 {
     if (envp == NULL)
         return NULL;
-
     while (envp->next)
         envp = envp->next;
-
     return envp;
 }
 
