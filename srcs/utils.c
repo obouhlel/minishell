@@ -1,15 +1,5 @@
 #include "minishell.h"
 
-size_t ft_strlen_c(char *str, char c)
-{
-	size_t i;
-
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	return (i);
-}
-
 size_t ft_strlen(char *str)
 {
     size_t i;
@@ -20,7 +10,17 @@ size_t ft_strlen(char *str)
     return (i);
 }
 
-size_t size_tab(char **tab)
+size_t ft_strlen_c(char *str, char c)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
+}
+
+size_t size_strs(char **tab)
 {
 	size_t i;
 

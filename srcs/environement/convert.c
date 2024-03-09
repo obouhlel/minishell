@@ -1,15 +1,5 @@
 #include "minishell.h"
 
-size_t size_tab(char **tab)
-{
-    size_t i;
-
-    i = 0;
-    while (tab[i])
-        i++;
-    return (i);
-}
-
 char *ft_join_env(char *key, char *value)
 {
     char    *env;
@@ -41,7 +31,7 @@ char **envp_to_tab(t_envp *envp)
     char    **tab;
     int     i;
 
-    tab = calloc(sizeof(char *), (size_tab(envp) + 1));
+    tab = calloc(sizeof(char *), (size_strs(envp) + 1));
     if (!tab)
         return (NULL);
     i = 0;

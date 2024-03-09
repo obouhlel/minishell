@@ -30,13 +30,15 @@ void	envp_del(t_envp **envp, char *key);
 char	*envp_get(t_envp *envp, char *key);
 void	envp_update(t_envp **envp, char *key, char *value);
 void	print_envp(t_envp *envp);
+char	**envp_to_tab(t_envp *envp);
 void	ft_free_envp(t_envp *envp);
 
 // UTILS
 size_t	ft_strlen_c(char *str, char c);
 size_t	ft_strlen(char *str);
-size_t	size_tab(char **tab);
+size_t	size_strs(char **strs);
 void	ft_free(void **ptr);
+void	ft_free_strs(char ***strs);
 char	*ft_strdup(char *str);
 
 #endif
