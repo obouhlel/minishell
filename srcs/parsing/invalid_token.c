@@ -14,7 +14,7 @@ int is_in_quotes(char *line, size_t *i, char quote)
     return (EXIT_SUCCESS);
 }
 
-char    check_redirection(char *line, size_t *i, char c, int size)
+char    check_redirection(char *line, size_t *i, char c, size_t size)
 {
     size_t  j;
 
@@ -37,6 +37,8 @@ char    have_invalid_token(char *line)
     size_t  i;
 
     i = 0;
+    if (line[i] == '|')
+        return ('|');
     while (line[i])
     {
         if (line[i] == '\'' || line[i] == '\"')
