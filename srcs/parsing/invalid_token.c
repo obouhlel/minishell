@@ -14,7 +14,7 @@ int is_in_quotes(char *line, size_t *i, char quote)
     return (EXIT_SUCCESS);
 }
 
-char    check_redirection(char *line, size_t *i, char c)
+char    check_redirection(char *line, size_t *i, char c, int size)
 {
     size_t  j;
 
@@ -23,7 +23,7 @@ char    check_redirection(char *line, size_t *i, char c)
         return ('\0');
     while (line[j] && line[j] == c)
         j++;
-    if (j - *i > 2)
+    if (j - *i > size)
         return (c);
     if (line[j] == '\0')
         return ('\n');
@@ -45,10 +45,13 @@ char    have_invalid_token(char *line)
             if (is_in_quotes(line, &i, c) == EXIT_FAILURE)
                 return (c);
         }
-        c = check_redirection(line, &i, '>');
+        c = check_redirection(line, &i, '>', 2);
         if (c)
             return (c);
-        c = check_redirection(line, &i, '<');
+        c = check_redirection(line, &i, '<', 2);
+        if (c)
+            return (c);
+        c = check_redirection(line, &i, '|', 1);
         if (c)
             return (c);
         if (strchr(invalid_token, line[i]))
