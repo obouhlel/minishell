@@ -19,5 +19,6 @@ t_input *parsing(char *line, t_envp *envp)
     if (!new_line)
         return (NULL);
     printf("new_line: %s\n", new_line);
+    ft_free((void **)&new_line);
     return (NULL);
 }

@@ -1,7 +1,7 @@
 #include "minishell.h"
 #include "parsing.h"
 
-bool    do_expend(char c, char c_next, bool is_in_sigle_quote)
+bool    can_do_expend(char c, char c_next, bool is_in_sigle_quote)
 {
     return (c == '$' && c_next != '\0' && \
         !is_whitespace(c_next) && !is_in_sigle_quote);
@@ -24,7 +24,7 @@ size_t  count_dolars(char *line)
             is_in_double_quote = !is_in_double_quote;
         if (line[i] == '\'' && is_in_double_quote == false)
             is_in_sigle_quote = !is_in_sigle_quote;
-        if (do_expend(line[i], line[i + 1], is_in_sigle_quote))
+        if (can_do_expend(line[i], line[i + 1], is_in_sigle_quote))
             count++;
         i++;
     }
@@ -55,13 +55,33 @@ char    *get_var(char *str)
     return (var);
 }
 
+int  count_expend_size(char *line, t_envp *envp)
+{
+    int     size;
+    char    *var;
+    char    *value;
+
+    size = 0;
+    var = get_var(line);
+    if (!var)
+        return (-1);
+    value = envp_get(envp, var);
+    if (!value)
+        return (-1);
+    size = ft_strlen(value);
+    ft_free((void **)&var);
+    ft_free((void **)&value);
+    return (size);
+}
+
+
 size_t  count_size_new_line(char *line, t_envp *envp)
 {
     size_t  i;
     size_t  size;
     bool    is_in_sigle_quote;
     bool    is_in_double_quote;
-    char    *var;
+    int     check_size;
 
     i = -1;
     size = 0;
@@ -73,13 +93,13 @@ size_t  count_size_new_line(char *line, t_envp *envp)
             is_in_double_quote = !is_in_double_quote;
         if (line[i] == '\'' && is_in_double_quote == false)
             is_in_sigle_quote = !is_in_sigle_quote;
-        if (do_expend(line[i], line[i + 1], is_in_sigle_quote))
+        if (can_do_expend(line[i], line[i + 1], is_in_sigle_quote))
         {
-            var = get_var(&line[++i]);
-            if (!var)
+            i++;
+            check_size = count_expend_size(&line[i], envp);
+            if (check_size == -1)
                 return (0);
-            size += ft_strlen(envp_get(envp, var));
-            ft_free((void **)&var);
+            size += check_size;
         }
         else
             size++;
