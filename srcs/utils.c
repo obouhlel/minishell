@@ -39,6 +39,21 @@ void ft_free(void **ptr)
     }
 }
 
+void ft_free_strs(char ***strs)
+{
+    size_t i;
+
+    i = 0;
+    if (!*strs)
+        return ;
+    while ((*strs)[i])
+    {
+        ft_free((void **)&(*strs)[i]);
+        i++;
+    }
+    *strs = NULL;
+}
+
 char    *ft_strdup(char *str)
 {
     char    *dup;

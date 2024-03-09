@@ -21,6 +21,7 @@ typedef struct s_input
 }	t_input;
 
 int		minishell(t_envp *envp);
+t_input	*parsing(t_envp *envp);
 
 // ENV
 t_envp	*envp_init(char **env);
