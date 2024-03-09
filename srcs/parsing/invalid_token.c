@@ -6,6 +6,8 @@ int is_in_quotes(char *line, size_t *i, char quote)
     size_t  j;
 
     j = *i + 1;
+    if (line[j] == '\0')
+        return (EXIT_FAILURE);
     while (line[j] && line[j] != quote)
         j++;
     if (!line[j])
@@ -50,6 +52,8 @@ char    have_invalid_token(char *line)
             c = line[i];
             if (is_in_quotes(line, &i, c) == EXIT_FAILURE)
                 return (c);
+            if (line[i] == '\0')
+                break ;
         }
         c = check_redirection(line, &i, '>', 2);
         if (c)

@@ -25,7 +25,7 @@ int minishell(t_envp *envp)
     {
         line = readline("> ");
         if (!line)
-            return (ft_free((void **)&line), EXIT_FAILURE);
+            return (EXIT_FAILURE);
         if (is_empty(line))
         {
             ft_free((void **)&line);

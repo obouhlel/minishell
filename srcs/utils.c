@@ -86,3 +86,8 @@ bool    is_whitespace(char c)
 {
     return (c == ' ' || c == '\t' || c == '\n');
 }
+
+bool    is_var(char c)
+{
+    return (is_alpha_num(c) || c == '_');
+}

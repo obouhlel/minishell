@@ -11,5 +11,5 @@ char    *envp_get(t_envp *envp, char *key)
             return (ft_strdup(tmp->value));
         tmp = tmp->next;
     }
-    return (ft_strdup(""));
+    return (ft_strdup("\0"));
 }

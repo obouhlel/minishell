@@ -29,7 +29,6 @@ typedef struct s_input
 {
 	char	*str;
 	int		token;
-	struct s_input	*next;
 }	t_input;
 
 int		minishell(t_envp *envp);
@@ -55,5 +54,6 @@ char	*ft_strdup(char *str);
 bool    is_alpha(char c);
 bool    is_alpha_num(char c);
 bool    is_whitespace(char c);
+bool    is_var(char c);
 
 #endif

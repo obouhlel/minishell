@@ -3,7 +3,9 @@
 
 char    *expend(char *line, t_envp *envp)
 {
-    char    *new_line;
+    // char    *new_line;
 
-    return (new_line);
+    (void)envp;
+    count_dolars(line);
+    return ("toto");
 }
