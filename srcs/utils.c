@@ -71,3 +71,18 @@ char    *ft_strdup(char *str)
     }
     return (dup);
 }
+
+bool    is_alpha(char c)
+{
+    return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
+
+bool    is_alpha_num(char c)
+{
+    return (is_alpha(c) || (c >= '0' && c <= '9'));
+}
+
+bool    is_whitespace(char c)
+{
+    return (c == ' ' || c == '\t' || c == '\n');
+}

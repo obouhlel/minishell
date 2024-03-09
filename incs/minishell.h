@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <stdbool.h>
 
 enum e_token
 {
@@ -51,5 +52,8 @@ size_t	size_strs(char **strs);
 void	ft_free(void **ptr);
 void	ft_free_strs(char ***strs);
 char	*ft_strdup(char *str);
+bool    is_alpha(char c);
+bool    is_alpha_num(char c);
+bool    is_whitespace(char c);
 
 #endif

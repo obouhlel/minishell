@@ -16,8 +16,9 @@ t_input *parsing(char *line, t_envp *envp)
             printf("minishell: syntax error near unexpected token `%c'\n", invalid_token);
         return (NULL);
     }
-    new_line = expend_envp(envp, line);
+    new_line = expend(envp, line);
     if (!new_line)
         return (NULL);
+    printf("new_line: %s\n", new_line);
     return (NULL);
 }

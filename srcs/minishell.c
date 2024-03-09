@@ -1,12 +1,6 @@
 #include "minishell.h"
 #include <readline/readline.h>
 #include <readline/history.h>
-#include <stdbool.h>
-
-bool    is_whitespace(char c)
-{
-    return (c == ' ' || c == '\t' || c == '\n');
-}
 
 bool    is_empty(char *str)
 {
