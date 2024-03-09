@@ -60,14 +60,18 @@ size_t  count_size_new_line(char *line, t_envp *envp)
     size_t  i;
     size_t  size;
     bool    is_in_sigle_quote;
+    bool    is_in_double_quote;
     char    *var;
 
     i = -1;
     size = 0;
     is_in_sigle_quote = false;
+    is_in_double_quote = false;
     while (line[++i])
     {
-        if (line[i] == '\'')
+        if (line[i] == '\"' && is_in_sigle_quote == false)
+            is_in_double_quote = !is_in_double_quote;
+        if (line[i] == '\'' && is_in_double_quote == false)
             is_in_sigle_quote = !is_in_sigle_quote;
         if (do_expend(line[i], line[i + 1], is_in_sigle_quote))
         {
