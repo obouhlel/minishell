@@ -31,10 +31,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS) $(DEPS)
+	rm -rf $(OBJS) $(DEPS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
