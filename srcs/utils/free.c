@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ultils_free.c                                      :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:50:45 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 09:51:53 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 15:03:49 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,17 @@ void	ft_free_strs(char ***strs)
 	}
 	free(*strs);
 	*strs = NULL;
+}
+
+void ft_free_input(t_input *input)
+{
+	t_input *tmp;
+
+	while (input)
+	{
+		tmp = input;
+		input = input->next;
+		ft_free((void **)&tmp->str);
+		free(tmp);
+	}
 }

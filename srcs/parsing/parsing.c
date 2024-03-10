@@ -6,25 +6,12 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 13:18:46 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 15:03:28 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "parsing.h"
-
-void ft_free_input(t_input *input)
-{
-	t_input *tmp;
-
-	while (input)
-	{
-		tmp = input;
-		input = input->next;
-		ft_free((void **)&tmp->str);
-		free(tmp);
-	}
-}
 
 t_input	*parsing(char *line, t_envp *envp)
 {
