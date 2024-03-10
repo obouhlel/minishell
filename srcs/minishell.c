@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 07:58:00 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 07:59:09 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 13:15:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	minishell(t_envp *envp)
 			ft_free((void **)&line);
 			continue ;
 		}
+		ft_free_input(input);
 		ft_free((void **)&line);
 	}
 	return (EXIT_SUCCESS);

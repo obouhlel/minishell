@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:09 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 11:09:36 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 13:04:05 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef struct s_expand
 
 char	have_invalid_token(char *line);
 char	*expend(char *line, t_envp *envp);
+t_input	*tokenisation(char *line);
 
 // EXPEND
-size_t	count_nb_token(char *line);
 int		do_expend(size_t *j, char *line, char **new_line, t_envp *envp);
 size_t	count_dolars(char *line);
 char	*get_var(char *str);

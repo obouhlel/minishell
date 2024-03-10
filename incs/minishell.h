@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 11:20:33 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 14:22:05 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,16 @@ enum e_token
 	REDIR_IN,
 	REDIR_OUT,
 	REDIR_APPEND,
-	FILES
+	DELIMETER,
+	INFILE,
+	OUTFILE,
+	OUTFILE_APPEND,
 };
 
 enum e_type
 {
 	WORD,
 	REDIR,
-	DOUBLE_REDIR,
 	PIPES,
 };
 
@@ -51,6 +53,7 @@ typedef struct s_input
 {
 	char			*str;
 	int				token;
+	bool			to_join;
 	struct s_input	*next;
 }	t_input;
 
@@ -73,10 +76,12 @@ size_t	ft_strlen(char *str);
 size_t	size_strs(char **strs);
 void	ft_free(void **ptr);
 void	ft_free_strs(char ***strs);
+void 	ft_free_input(t_input *input);
 char	*ft_strdup(char *str);
 bool	is_alpha(char c);
 bool	is_alpha_num(char c);
 bool	is_whitespace(char c);
 bool	is_var(char c);
+bool	is_quote(char c);
 
 #endif

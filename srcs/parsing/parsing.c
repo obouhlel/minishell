@@ -6,17 +6,31 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:36:43 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 13:18:46 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "parsing.h"
 
+void ft_free_input(t_input *input)
+{
+	t_input *tmp;
+
+	while (input)
+	{
+		tmp = input;
+		input = input->next;
+		ft_free((void **)&tmp->str);
+		free(tmp);
+	}
+}
+
 t_input	*parsing(char *line, t_envp *envp)
 {
 	char	invalid_token;
 	char	*new_line;
+	t_input	*input;
 
 	invalid_token = have_invalid_token(line);
 	if (invalid_token != '\0')
@@ -32,7 +46,9 @@ t_input	*parsing(char *line, t_envp *envp)
 	if (!new_line)
 		return (NULL);
 	printf("new_line: %s\n", new_line);
-	printf("nb_token: %zu\n", count_nb_token(new_line));
+	input = tokenisation(new_line);
+	if (!input)
+		return (NULL);
 	ft_free((void **)&new_line);
 	return (NULL);
 }
