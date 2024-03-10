@@ -6,37 +6,33 @@
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:35 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:32:09 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:52:46 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include "parsing.h"
 
-bool	can_do_expend(char c, char c_next, bool is_in_sigle_quote)
+bool	can_do_expend(char c, char c_next, bool is_single)
 {
-	return (c == '$' && c_next != '\0' && !is_whitespace(c_next)
-		&& !is_in_sigle_quote);
+	return (c == '$' && c_next != '\0' && !is_whitespace(c_next) && !is_single);
 }
 
 size_t	count_dolars(char *line)
 {
 	size_t	i;
 	size_t	count;
-	bool	is_in_sigle_quote;
-	bool	is_in_double_quote;
+	bool	is_single;
+	bool	is_double;
 
 	i = 0;
 	count = 0;
-	is_in_sigle_quote = false;
-	is_in_double_quote = false;
+	is_single = false;
+	is_double = false;
 	while (line[i])
 	{
-		if (line[i] == '\"' && is_in_sigle_quote == false)
-			is_in_double_quote = !is_in_double_quote;
-		if (line[i] == '\'' && is_in_double_quote == false)
-			is_in_sigle_quote = !is_in_sigle_quote;
-		if (can_do_expend(line[i], line[i + 1], is_in_sigle_quote))
+		check_quote_state(line[i], &is_single, &is_double);
+		if (can_do_expend(line[i], line[i + 1], is_single))
 			count++;
 		i++;
 	}
@@ -90,21 +86,18 @@ size_t	count_size_new_line(char *line, t_envp *envp)
 {
 	size_t	i;
 	size_t	size;
-	bool	is_in_sigle_quote;
-	bool	is_in_double_quote;
+	bool	is_single;
+	bool	is_double;
 	int		check_size;
 
 	i = -1;
 	size = 0;
-	is_in_sigle_quote = false;
-	is_in_double_quote = false;
+	is_single = false;
+	is_double = false;
 	while (line[++i])
 	{
-		if (line[i] == '\"' && is_in_sigle_quote == false)
-			is_in_double_quote = !is_in_double_quote;
-		if (line[i] == '\'' && is_in_double_quote == false)
-			is_in_sigle_quote = !is_in_sigle_quote;
-		if (can_do_expend(line[i], line[i + 1], is_in_sigle_quote))
+		check_quote_state(line[i], &is_single, &is_double);
+		if (can_do_expend(line[i], line[i + 1], is_single))
 		{
 			check_size = count_expend_size(&line[++i], envp);
 			if (check_size == -1)

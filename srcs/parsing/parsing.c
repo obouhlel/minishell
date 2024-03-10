@@ -6,7 +6,7 @@
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:44 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:22:45 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:53:55 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 t_input	*parsing(char *line, t_envp *envp)
 {
-	char invalid_token;
-	char *new_line;
+	char	invalid_token;
+	char	*new_line;
 
 	invalid_token = have_invalid_token(line);
 	if (invalid_token != '\0')
@@ -34,4 +34,12 @@ t_input	*parsing(char *line, t_envp *envp)
 	printf("new_line: %s\n", new_line);
 	ft_free((void **)&new_line);
 	return (NULL);
+}
+
+void	check_quote_state(char cur_char, bool *is_single, bool *is_double)
+{
+	if (cur_char == '\"' && !(*is_single))
+		*is_double = !(*is_double);
+	if (cur_char == '\'' && !(*is_double))
+		*is_single == !(*is_single);
 }

@@ -6,7 +6,7 @@
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:39 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:29:47 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:53:31 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	do_expend(size_t *j, char *line, char **new_line, t_envp *envp)
 	ft_free((void **)&value);
 	return (EXIT_SUCCESS);
 }
-
 
 void	expand_variable(char *line, t_envp *envp, t_expand *exp)
 {

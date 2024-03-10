@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del.c                                              :+:      :+:    :+:   */
+/*   ultils_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 08:22:20 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 10:21:45 by stle-gof         ###   ########.fr       */
+/*   Created: 2024/03/10 09:50:45 by stle-gof          #+#    #+#             */
+/*   Updated: 2024/03/10 09:51:53 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	envp_del(t_envp **envp, char *key)
+void	ft_free(void **ptr)
 {
-	t_envp	*tmp;
-	t_envp	*prev;
-
-	tmp = *envp;
-	prev = NULL;
-	while (tmp && strcmp(tmp->key, key) != 0)
+	if (*ptr)
 	{
-		prev = tmp;
-		tmp = tmp->next;
+		free(*ptr);
+		*ptr = NULL;
 	}
-	if (tmp == NULL)
+}
+
+void	ft_free_strs(char ***strs)
+{
+	size_t	i;
+
+	i = 0;
+	if (!*strs)
 		return ;
-	if (tmp == *envp)
-		*envp = tmp->next;
-	else
-		prev->next = tmp->next;
-	free(tmp->key);
-	free(tmp->value);
-	free(tmp);
+	while ((*strs)[i])
+	{
+		ft_free((void **)&(*strs)[i]);
+		i++;
+	}
+	free(*strs);
+	*strs = NULL;
 }

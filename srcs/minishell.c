@@ -30,8 +30,8 @@ bool	is_empty(char *str)
 
 int	minishell(t_envp *envp)
 {
-	char		*line;
-	t_input		*input;
+	char	*line;
+	t_input	*input;
 
 	while (1)
 	{

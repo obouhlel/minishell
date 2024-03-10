@@ -6,7 +6,7 @@
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:17 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:22:18 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:22:38 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ char	*ft_join_env(char *key, char *value)
 
 char	**envp_to_tab(t_envp *envp)
 {
-	char **tab;
-	int i;
+	char	**tab;
+	int		i;
 
 	tab = calloc(sizeof(char *), (envp_size(envp) + 1));
 	if (!tab)

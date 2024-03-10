@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del.c                                              :+:      :+:    :+:   */
+/*   utils-str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 08:22:20 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 10:21:45 by stle-gof         ###   ########.fr       */
+/*   Created: 2024/03/10 09:46:45 by stle-gof          #+#    #+#             */
+/*   Updated: 2024/03/10 09:47:24 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	envp_del(t_envp **envp, char *key)
+char	*ft_strdup(char *str)
 {
-	t_envp	*tmp;
-	t_envp	*prev;
+	char	*dup;
+	size_t	i;
 
-	tmp = *envp;
-	prev = NULL;
-	while (tmp && strcmp(tmp->key, key) != 0)
+	dup = calloc(sizeof(char), (ft_strlen(str) + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (str[i])
 	{
-		prev = tmp;
-		tmp = tmp->next;
+		dup[i] = str[i];
+		i++;
 	}
-	if (tmp == NULL)
-		return ;
-	if (tmp == *envp)
-		*envp = tmp->next;
-	else
-		prev->next = tmp->next;
-	free(tmp->key);
-	free(tmp->value);
-	free(tmp);
+	return (dup);
 }

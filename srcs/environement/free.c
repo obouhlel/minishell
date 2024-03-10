@@ -6,7 +6,7 @@
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:22 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:22:23 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:24:08 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free_envp(t_envp *envp)
 {
-	t_envp *tmp;
+	t_envp	*tmp;
 
 	while (envp)
 	{

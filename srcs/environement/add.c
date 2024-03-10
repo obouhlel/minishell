@@ -6,7 +6,7 @@
 /*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:15 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:22:16 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:23:05 by stle-gof         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static t_envp	*last_envp(t_envp *envp)
 
 int	envp_add(t_envp **envp, char *key, char *value)
 {
-	t_envp *new;
-	t_envp *last;
+	t_envp	*new;
+	t_envp	*last;
 
 	if (!key || !value)
 		return (EXIT_FAILURE);
