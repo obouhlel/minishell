@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   invalid_token.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 08:22:41 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 10:21:06 by stle-gof         ###   ########.fr       */
+/*   Created: 2024/03/10 10:30:10 by obouhlel          #+#    #+#             */
+/*   Updated: 2024/03/10 10:30:11 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "minishell.h"
 #include "parsing.h"

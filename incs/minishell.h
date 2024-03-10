@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:28:24 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 09:53:59 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,16 @@ enum e_token
 	HEREDOC,
 	REDIR_IN,
 	REDIR_OUT,
-	REDIR_APPEND
+	REDIR_APPEND,
+	FILES
+};
+
+enum e_type
+{
+	WORD,
+	REDIR,
+	DOUBLE_REDIR,
+	PIPES,
 };
 
 typedef struct s_envp

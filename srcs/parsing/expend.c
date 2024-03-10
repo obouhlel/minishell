@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expend.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 08:22:39 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 09:53:31 by stle-gof         ###   ########.fr       */
+/*   Created: 2024/03/10 10:29:03 by obouhlel          #+#    #+#             */
+/*   Updated: 2024/03/10 10:29:11 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	do_expend(size_t *j, char *line, char **new_line, t_envp *envp)
 	return (EXIT_SUCCESS);
 }
 
-void	expand_variable(char *line, t_envp *envp, t_expand *exp)
+void	expend_variable(char *line, t_envp *envp, t_expand *exp)
 {
 	do_expend(&(exp->j), &line[++(exp->i)], &(exp->new_line), envp);
 	while (line[exp->i] && (is_var(line[exp->i]) || line[exp->i] == '?'))
@@ -47,12 +47,12 @@ void	expand_variable(char *line, t_envp *envp, t_expand *exp)
 	exp->i--;
 }
 
-char	*expand(char *line, t_envp *envp)
+char	*expend(char *line, t_envp *envp)
 {
 	const size_t	len = count_size_new_line(line, envp);
 	t_expand		exp;
 
-	if (count_dollars(line) == 0)
+	if (count_dolars(line) == 0)
 		return (ft_strdup(line));
 	bzero(&exp, sizeof(t_expand));
 	exp.new_line = calloc(sizeof(char), (len + 1));
@@ -64,9 +64,9 @@ char	*expand(char *line, t_envp *envp)
 			exp.is_in_double_quote = !exp.is_in_double_quote;
 		else if (line[exp.i] == '\'' && !exp.is_in_double_quote)
 			exp.is_in_single_quote = !exp.is_in_single_quote;
-		else if (can_do_expand(line[exp.i], line[exp.i + 1],
+		else if (can_do_expend(line[exp.i], line[exp.i + 1],
 				exp.is_in_single_quote))
-			expand_variable(line, envp, &exp);
+			expend_variable(line, envp, &exp);
 		else
 			exp.new_line[exp.j++] = line[exp.i];
 		exp.i++;

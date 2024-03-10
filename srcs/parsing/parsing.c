@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 08:22:44 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 09:53:55 by stle-gof         ###   ########.fr       */
+/*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
+/*   Updated: 2024/03/10 10:30:30 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_input	*parsing(char *line, t_envp *envp)
 	if (!new_line)
 		return (NULL);
 	printf("new_line: %s\n", new_line);
+	printf("nb_token: %zu\n", count_nb_token(new_line));
 	ft_free((void **)&new_line);
 	return (NULL);
 }
