@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 15:03:28 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 15:07:56 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_input	*parsing(char *line, t_envp *envp)
 	if (!input)
 		return (NULL);
 	ft_free((void **)&new_line);
-	return (NULL);
+	return (input);
 }
 
 void	check_quote_state(char cur_char, bool *is_single, bool *is_double)

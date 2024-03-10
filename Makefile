@@ -21,7 +21,7 @@ DEPS := $(OBJS:.o=.d)
 # Flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -MMD -I$(INC_PATH)
-CFLAGS += -g3 -fsanitize=address
+CFLAGS += -g3 # -fsanitize=address
 LDFLAGS = -lreadline
 
 # Rules
