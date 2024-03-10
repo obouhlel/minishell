@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   invalid_token.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:41 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 08:22:42 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:10:14 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	check_redirection(char *line, size_t *i, char c, size_t size)
 
 char	have_invalid_token(char *line)
 {
-	const char	*invalid_token = ";\\^&*(){}[]_-`~@#%/.,:";
+	const char	*invalid_token = ";\\^&*(){}[]_-`~@#%/,:";
 	char		c;
 	size_t		i;
 
