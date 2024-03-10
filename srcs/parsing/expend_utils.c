@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   expend_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:35 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 09:52:46 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:07:11 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*get_var(char *str)
 	return (var);
 }
 
-int	count_expend_size(char *line, t_envp *envp)
+int	count_expend_size(char *line, t_envp *envp, size_t *i)
 {
 	int		size;
 	char	*var;
@@ -73,6 +73,7 @@ int	count_expend_size(char *line, t_envp *envp)
 	var = get_var(line);
 	if (!var)
 		return (-1);
+	*i += ft_strlen(var);
 	value = envp_get(envp, var);
 	if (!value)
 		return (-1);
@@ -90,22 +91,25 @@ size_t	count_size_new_line(char *line, t_envp *envp)
 	bool	is_double;
 	int		check_size;
 
-	i = -1;
+	i = 0;
 	size = 0;
 	is_single = false;
 	is_double = false;
-	while (line[++i])
+	while (line[i])
 	{
 		check_quote_state(line[i], &is_single, &is_double);
 		if (can_do_expend(line[i], line[i + 1], is_single))
 		{
-			check_size = count_expend_size(&line[++i], envp);
+			check_size = count_expend_size(&line[++i], envp, &i);
 			if (check_size == -1)
 				return (0);
 			size += check_size;
 		}
 		else
+		{
 			size++;
+			i++;
+		}
 	}
 	return (size);
 }

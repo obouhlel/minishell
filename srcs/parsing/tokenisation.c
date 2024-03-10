@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:54:22 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:35:22 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:37:00 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ size_t	count_nb_token(char *line)
 	return (nb_token);
 }
 
-size_t	count_token_size(char *line)
-{
-	int	size;
-	int	i;
+// size_t	count_token_size(char *line)
+// {
+// 	int	size;
+// 	int	i;
 
-	size = 0;
-	i = 0;
+// 	size = 0;
+// 	i = 0;
 
-}
+// }
 
 // t_input	*tokenisation(char *line)
 // {

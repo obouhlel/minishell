@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:30:30 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:36:43 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	check_quote_state(char cur_char, bool *is_single, bool *is_double)
 	if (cur_char == '\"' && !(*is_single))
 		*is_double = !(*is_double);
 	if (cur_char == '\'' && !(*is_double))
-		*is_single == !(*is_single);
+		*is_single = !(*is_single);
 }

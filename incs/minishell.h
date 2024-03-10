@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 09:53:59 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:09:11 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ typedef struct s_envp
 	char			*value;
 	struct s_envp	*next;
 }					t_envp;
-
-typedef struct s_expand
-{
-	size_t	i;
-	size_t	j;
-	bool	is_in_single_quote;
-	bool	is_in_double_quote;
-	char	*new_line;
-}			t_expand;
 
 typedef struct s_input
 {

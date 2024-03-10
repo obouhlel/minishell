@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:29:03 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:29:11 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:12:45 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ void	expend_variable(char *line, t_envp *envp, t_expand *exp)
 	do_expend(&(exp->j), &line[++(exp->i)], &(exp->new_line), envp);
 	while (line[exp->i] && (is_var(line[exp->i]) || line[exp->i] == '?'))
 		exp->i++;
-	if (line[exp->i] == '\0')
-		return ;
-	exp->i--;
 }
 
 char	*expend(char *line, t_envp *envp)
@@ -60,16 +57,11 @@ char	*expend(char *line, t_envp *envp)
 		return (NULL);
 	while (line[exp.i])
 	{
-		if (line[exp.i] == '\"' && !exp.is_in_single_quote)
-			exp.is_in_double_quote = !exp.is_in_double_quote;
-		else if (line[exp.i] == '\'' && !exp.is_in_double_quote)
-			exp.is_in_single_quote = !exp.is_in_single_quote;
-		else if (can_do_expend(line[exp.i], line[exp.i + 1],
-				exp.is_in_single_quote))
+		check_quote_state(line[exp.i], &(exp.is_single), &(exp.is_double));
+		if (can_do_expend(line[exp.i], line[exp.i + 1], exp.is_single))
 			expend_variable(line, envp, &exp);
 		else
-			exp.new_line[exp.j++] = line[exp.i];
-		exp.i++;
+			exp.new_line[exp.j++] = line[exp.i++];
 	}
 	return (exp.new_line);
 }

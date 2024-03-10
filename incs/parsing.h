@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:09 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 10:32:08 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:09:36 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+
+typedef struct s_expand
+{
+	size_t	i;
+	size_t	j;
+	bool	is_single;
+	bool	is_double;
+	char	*new_line;
+}			t_expand;
 
 char	have_invalid_token(char *line);
 char	*expend(char *line, t_envp *envp);
