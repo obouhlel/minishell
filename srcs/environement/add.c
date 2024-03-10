@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/10 08:22:15 by stle-gof          #+#    #+#             */
+/*   Updated: 2024/03/10 08:22:16 by stle-gof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
-static t_envp *last_envp(t_envp *envp)
+static t_envp	*last_envp(t_envp *envp)
 {
-    if (envp == NULL)
-        return NULL;
-    while (envp->next)
-        envp = envp->next;
-    return envp;
+	if (envp == NULL)
+		return (NULL);
+	while (envp->next)
+		envp = envp->next;
+	return (envp);
 }
 
-int envp_add(t_envp **envp, char *key, char *value)
+int	envp_add(t_envp **envp, char *key, char *value)
 {
-	t_envp	*new;
-	t_envp	*last;
+	t_envp *new;
+	t_envp *last;
 
 	if (!key || !value)
 		return (EXIT_FAILURE);

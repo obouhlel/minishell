@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
+/*   Updated: 2024/03/10 08:28:24 by stle-gof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -6,6 +18,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdbool.h>
+# include <string.h>
 
 enum e_token
 {
@@ -23,7 +36,16 @@ typedef struct s_envp
 	char			*key;
 	char			*value;
 	struct s_envp	*next;
-}   t_envp;
+}					t_envp;
+
+typedef struct s_expand
+{
+	size_t	i;
+	size_t	j;
+	bool	is_in_single_quote;
+	bool	is_in_double_quote;
+	char	*new_line;
+}			t_expand;
 
 typedef struct s_input
 {
@@ -51,9 +73,9 @@ size_t	size_strs(char **strs);
 void	ft_free(void **ptr);
 void	ft_free_strs(char ***strs);
 char	*ft_strdup(char *str);
-bool    is_alpha(char c);
-bool    is_alpha_num(char c);
-bool    is_whitespace(char c);
-bool    is_var(char c);
+bool	is_alpha(char c);
+bool	is_alpha_num(char c);
+bool	is_whitespace(char c);
+bool	is_var(char c);
 
 #endif

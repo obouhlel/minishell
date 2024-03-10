@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/10 08:21:49 by stle-gof          #+#    #+#             */
+/*   Updated: 2024/03/10 08:21:50 by stle-gof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
-char *get_key(char *str)
+char	*get_key(char *str)
 {
 	char	*key;
 	size_t	i;
@@ -17,7 +29,7 @@ char *get_key(char *str)
 	return (key);
 }
 
-char *get_value(char *str)
+char	*get_value(char *str)
 {
 	char	*value;
 	size_t	skip_char;
@@ -36,11 +48,11 @@ char *get_value(char *str)
 	return (value);
 }
 
-void add_exit_code(t_envp **envp)
+void	add_exit_code(t_envp **envp)
 {
 	char	*key;
 	char	*value;
-	int	 status;
+	int		status;
 
 	key = ft_strdup("?");
 	if (!key)
@@ -59,9 +71,9 @@ void add_exit_code(t_envp **envp)
 	}
 }
 
-t_envp *envp_init(char **env)
+t_envp	*envp_init(char **env)
 {
-	t_envp  *envp;
+	t_envp	*envp;
 	int		status;
 	int		i;
 
