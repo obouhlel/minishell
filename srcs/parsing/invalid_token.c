@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:10 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:32:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:38:48 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ char	check_redirection(char *line, size_t *i, char c, size_t size)
 		j++;
 	if (j - *i > size)
 		return (c);
+	while (line[j] && is_whitespace(line[j]))
+	{
+		j++;
+		if (line[j + 1] == '\0')
+			return (c);
+	}
 	if (line[j] == '\0')
 		return ('\n');
 	if (strchr(invalid_token, line[j]))

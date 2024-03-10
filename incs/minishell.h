@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 11:09:11 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 11:20:33 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ typedef struct s_envp
 
 typedef struct s_input
 {
-	char	*str;
-	int		token;
+	char			*str;
+	int				token;
+	struct s_input	*next;
 }	t_input;
 
 int		minishell(t_envp *envp);
