@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:54:22 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:25:51 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:35:22 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	is_in_quote_token(char *line, int *i, char quote, int *nb_token)
 
 size_t	count_nb_token(char *line)
 {
-	int  i;
-	int  nb_token;
+	int	i;
+	int	nb_token;
 
 	i = 0;
 	nb_token = 0;

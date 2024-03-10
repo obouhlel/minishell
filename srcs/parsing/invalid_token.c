@@ -6,10 +6,9 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:10 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 10:30:11 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:32:27 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "minishell.h"
 #include "parsing.h"
@@ -49,15 +48,6 @@ char	check_redirection(char *line, size_t *i, char c, size_t size)
 	return ('\0');
 }
 
-char	have_invalid_token(char *line)
-{
-	const char	*invalid_token = ";\\^&*(){}[]_-`~@#%/.,:";
-
-	if (line[0] == '|')
-		return ('|');
-	return (check_quotes_and_redirections(line, invalid_token));
-}
-
 char	check_quotes_and_redirections(char *line, const char *invalid_token)
 {
 	char	c;
@@ -82,4 +72,13 @@ char	check_quotes_and_redirections(char *line, const char *invalid_token)
 		i++;
 	}
 	return ('\0');
+}
+
+char	have_invalid_token(char *line)
+{
+	const char	*invalid_token = ";\\^&*(){}[]_-`~@#%/.,:";
+
+	if (line[0] == '|')
+		return ('|');
+	return (check_quotes_and_redirections(line, invalid_token));
 }

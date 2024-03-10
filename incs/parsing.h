@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:09 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 10:27:56 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/10 10:32:08 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,6 @@ size_t	count_dolars(char *line);
 char	*get_var(char *str);
 bool	can_do_expend(char c, char c_next, bool is_in_sigle_quote);
 size_t	count_size_new_line(char *line, t_envp *envp);
+void	check_quote_state(char cur_char, bool *is_single, bool *is_double);
+
 #endif
