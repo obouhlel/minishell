@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 07:58:00 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 13:15:27 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:30:55 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ bool	is_empty(char *str)
 int	minishell(t_envp *envp)
 {
 	char	*line;
-	t_input	*input;
+	t_shell	shell;
 
+	shell.envp = envp;
 	while (1)
 	{
 		line = readline("> ");
@@ -44,13 +45,16 @@ int	minishell(t_envp *envp)
 			continue ;
 		}
 		add_history(line);
-		input = parsing(line, envp);
-		if (!input)
+		shell.input = parsing(line, envp);
+		if (!shell.input)
 		{
 			ft_free((void **)&line);
 			continue ;
 		}
-		ft_free_input(input);
+		print_input(shell.input);
+		// heredoc
+		// exec
+		ft_free_input(shell.input);
 		ft_free((void **)&line);
 	}
 	return (EXIT_SUCCESS);

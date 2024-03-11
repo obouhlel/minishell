@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 10:12:32 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:31:51 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_input	*parsing(char *line, t_envp *envp)
 	new_line = expend(line, envp);
 	if (!new_line)
 		return (NULL);
-	printf("new_line: %s\n", new_line);
 	input = tokenisation(new_line);
 	if (!input)
 		return (NULL);

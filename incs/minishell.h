@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 10:12:02 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:31:16 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ typedef struct s_input
 	struct s_input	*next;
 }					t_input;
 
+typedef struct s_shell
+{
+	t_envp		*envp;
+	t_input		*input;
+}				t_shell;
+
 int			minishell(t_envp *envp);
 t_input		*parsing(char *line, t_envp *envp);
 
@@ -76,5 +82,6 @@ bool	is_whitespace(char c);
 bool	is_var(char c);
 bool	is_quote(char c);
 char	*ft_strjoin(char *str1, char *str2);
+void	print_input(t_input *input);
 
 #endif

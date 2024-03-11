@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:54:22 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 11:21:03 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 11:28:31 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,12 @@ int	parsing_add(t_parsing **parse, char *str, int token, bool is_in_quote)
 	new_node->to_join = is_in_quote;
 	new_node->next = NULL;
 	if (*parse == NULL)
-	{
 		*parse = new_node;
-	}
 	else
 	{
 		current = *parse;
 		while (current->next != NULL)
-		{
 			current = current->next;
-		}
 		current->next = new_node;
 	}
 	return (EXIT_SUCCESS);
@@ -163,7 +159,7 @@ int	save_token_pipe_or_redir(char *line, int *i, t_parsing **parse)
 
 int	save_string_and_token(char *line, int *i, t_parsing **parse)
 {
-	if (line[(*i)] == '\'' || line[(*i)] == '\"')
+	if (is_quote(line[(*i)]))
 		return (is_in_quote_token(line, i, line[(*i)], parse));
 	else if (is_token(line[(*i)]) != WORD)
 		return (save_token_pipe_or_redir(line, i, parse));
@@ -248,16 +244,12 @@ int	input_add(t_input **input, char *str, int token)
 	new_node->token = token;
 	new_node->next = NULL;
 	if (*input == NULL)
-	{
 		*input = new_node;
-	}
 	else
 	{
 		current = *input;
 		while (current->next != NULL)
-		{
 			current = current->next;
-		}
 		current->next = new_node;
 	}
 	return (EXIT_SUCCESS);
@@ -319,13 +311,9 @@ void	set_token(t_input **input)
 				if (current->next && current->next->token == WORD)
 				{
 					if (current->token == REDIR)
-					{
 						current->next->token = i + 6;
-					}
 					else
-					{
 						current->next->token = CMD;
-					}
 				}
 				current->token = i + 2;
 				break ;
@@ -374,16 +362,12 @@ t_input	*tokenisation(char *line)
 	parse = pre_tokenisation(line);
 	if (!parse)
 		return (NULL);
-	printf("\tbefore join\n");
-	print_parse(parse);
 	set_prev_parsing(&parse);
 	if (join_parsing(&parse) == EXIT_FAILURE)
 	{
 		ft_free_parsing(parse, true);
 		return (NULL);
 	}
-	printf("\tafter join\n");
-	print_parse(parse);
 	if (list_copy(parse, &input) == EXIT_FAILURE)
 	{
 		ft_free_parsing(parse, true);
@@ -392,7 +376,5 @@ t_input	*tokenisation(char *line)
 	}
 	ft_free_parsing(parse, false);
 	set_token(&input);
-	printf("\tafter set token\n");
-	print_input(input);
 	return (input);
 }
