@@ -1,4 +1,4 @@
-./objs
+objs
 *.o
 *.d
 minishell
