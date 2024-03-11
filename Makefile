@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -rf $(OBJS) $(DEPS)
+	rm -rf $(OBJS) $(DEPS) $(OBJ_PATH)
 
 fclean: clean
 	rm -rf $(NAME)
