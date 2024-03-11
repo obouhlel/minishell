@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:46:45 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 15:36:20 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:57:45 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,32 @@ char	*ft_strjoin(char *str1, char *str2)
 	i = 0;
 	while (str1[i])
 	{
-		new_str[i] = str2[i];
+		new_str[i] = str1[i];
 		i++;
 	}
 	j = 0;
 	while (str2[j])
 	{
-		new_str[i] = str1[j];
+		new_str[i] = str2[j];
 		i++;
 		j++;
 	}
 	return (new_str);
+}
+
+char	*ft_substr(char *str, size_t start, size_t len)
+{
+	char	*sub_str;
+	size_t	i;
+
+	sub_str = calloc(sizeof(char), (len + 1));
+	if (!sub_str)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		sub_str[i] = str[start + i];
+		i++;
+	}
+	return (sub_str);
 }

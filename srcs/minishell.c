@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 07:58:00 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 15:33:59 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:55:31 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	minishell(t_envp *envp)
 		shell.input = parsing(line, envp);
 		if (!shell.input)
 			continue ;
-		// print_input(shell.input);
-		// ft_free_input(shell.input);
+		print_input(shell.input);
+		ft_free_input(shell.input);
 	}
 	return (EXIT_SUCCESS);
 }

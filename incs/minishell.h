@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 15:22:09 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:56:51 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ bool		is_whitespace(char c);
 bool		is_var(char c);
 bool		is_quote(char c);
 char		*ft_strjoin(char *str1, char *str2);
+char		*ft_substr(char *str, size_t start, size_t len);
 void		print_input(t_input *input);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 15:34:49 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:55:17 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@
 t_input	*parsing(char *line, t_envp *envp)
 {
 	t_input		*input;
-	// char		*new_line;
+	char		*new_line;
 
 	(void)envp;
 	input = NULL;
 	if (invalid_syntax(line))
 		return (ft_free((void **)&line), NULL);
-	// new_line = expend(line, envp);
-	// if (!new_line)
-	// 	return (ft_free((void **)&line), NULL);
+	new_line = expend(line, envp);
+	if (!new_line)
+		return (ft_free((void **)&line), NULL);
 	ft_free((void **)&line);
-	// input = tokenisation(new_line);
-	// if (!input)
-	// 	return (ft_free((void **)&new_line), NULL);
-	// ft_free((void **)&new_line);
+	input = tokenisation(new_line);
+	if (!input)
+		return (ft_free((void **)&new_line), NULL);
+	ft_free((void **)&new_line);
 	return (input);
 }
 
