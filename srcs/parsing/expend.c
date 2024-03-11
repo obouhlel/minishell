@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:29:03 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 11:12:45 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:26:12 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	do_expend(size_t *j, char *line, char **new_line, t_envp *envp)
 	return (EXIT_SUCCESS);
 }
 
+static
 void	expend_variable(char *line, t_envp *envp, t_expand *exp)
 {
 	do_expend(&(exp->j), &line[++(exp->i)], &(exp->new_line), envp);

@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:10 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 11:38:48 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:46:37 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	check_quotes_and_redirections(char *line, const char *invalid_token)
 
 char	have_invalid_token(char *line)
 {
-	const char	*invalid_token = ";\\^&*(){}[]_-`~@#%/.,:";
+	const char	*invalid_token = ";\\^&*(){}[]_-`~@#%/,:";
 
 	if (line[0] == '|')
 		return ('|');

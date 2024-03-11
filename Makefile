@@ -8,11 +8,12 @@ OBJ_PATH = ./objs/
 # Files
 SRCS = main.c minishell.c
 SRCS += utils/bool.c utils/str.c utils/free.c utils/len.c
-SRCS += environement/init.c environement/add.c environement/del.c environement/get.c \
-	environement/print.c environement/update.c environement/free.c environement/convert.c
+SRCS += envp/init.c envp/add.c envp/del.c envp/get.c \
+		envp/print.c envp/update.c envp/free.c envp/convert.c
 SRCS += parsing/parsing.c parsing/invalid_token.c
 SRCS += parsing/expend.c parsing/expend_utils.c
-SRCS += parsing/tokenisation.c
+SRCS += parsing/tokenisation.c parsing/pre_tokenisation.c parsing/tokenisation_utils.c
+SRCS += parsing/debug.c
 SRCS := $(addprefix $(SRC_PATH), $(SRCS))
 
 OBJS := $(subst $(SRC_PATH), $(OBJ_PATH), $(SRCS:.c=.o))

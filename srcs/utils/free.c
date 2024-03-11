@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:50:45 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 09:52:36 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:16:26 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,6 @@ void ft_free_input(t_input *input)
 		tmp = input;
 		input = input->next;
 		ft_free((void **)&tmp->str);
-		ft_free((void **)&tmp);
-	}
-}
-
-void ft_free_parsing(t_parsing *parse, bool free_str)
-{
-	t_parsing *tmp;
-
-	while (parse)
-	{
-		tmp = parse;
-		parse = parse->next;
-		if (free_str)
-			ft_free((void **)&tmp->str);
 		ft_free((void **)&tmp);
 	}
 }

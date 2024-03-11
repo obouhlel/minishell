@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:35 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 12:14:43 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:24:53 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,7 @@ size_t	count_size_new_line(char *line, t_envp *envp)
 			size += check_size;
 		}
 		else
-		{
-			size++;
-			i++;
-		}
+			(size++, i++);
 	}
 	return (size);
 }
