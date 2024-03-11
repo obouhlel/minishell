@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:44:57 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 15:35:12 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:37:02 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	join_word(t_parsing *parse)
 	char		*new_str;
 
 	tmp = parse->next;
-	new_str = ft_strjoin(tmp->str, parse->str);
+	new_str = ft_strjoin(parse->str, tmp->str);
 	if (!new_str)
 		return (EXIT_FAILURE);
 	ft_free((void **)&parse->str);

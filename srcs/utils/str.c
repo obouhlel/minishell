@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:46:45 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 15:23:38 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:36:20 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ char	*ft_strjoin(char *str1, char *str2)
 	if (!new_str)
 		return (NULL);
 	i = 0;
-	while (str2[i])
+	while (str1[i])
 	{
 		new_str[i] = str2[i];
 		i++;
 	}
 	j = 0;
-	while (str1[j])
+	while (str2[j])
 	{
 		new_str[i] = str1[j];
 		i++;
