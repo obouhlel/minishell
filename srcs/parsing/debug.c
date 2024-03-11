@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:35:30 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 12:10:59 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:26:13 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ char	*get_type(int token)
 }
 
 static
-char    *to_join_bool(bool to_join)
+char	*to_join_bool(bool to_join)
 {
-    if (to_join)
-        return ("true");
-    return ("false");
+	if (to_join)
+		return ("true");
+	return ("false");
 }
 
 void	print_parse(t_parsing *parse)
@@ -38,9 +38,9 @@ void	print_parse(t_parsing *parse)
 	while (parse)
 	{
 		printf("str: %s | type: %s | to join: %s\n", \
-        parse->str, \
-        get_type(parse->token), \
-        to_join_bool(parse->to_join));
+			parse->str, \
+			get_type(parse->token), \
+			to_join_bool(parse->to_join));
 		parse = parse->next;
 	}
 }

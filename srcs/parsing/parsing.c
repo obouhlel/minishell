@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 13:31:55 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:34:49 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,13 @@
 
 t_input	*parsing(char *line, t_envp *envp)
 {
-	char		invalid_token;
-	// char		*new_line;
 	t_input		*input;
+	// char		*new_line;
 
 	(void)envp;
 	input = NULL;
-	invalid_token = have_invalid_token(line);
-	if (invalid_token != '\0')
-	{
-		if (invalid_token == '\n')
-			printf("minishell: syntax error near unexpected token `newline'\n");
-		else
-			printf("minishell: syntax error near unexpected token `%c'\n",
-				invalid_token);
-		return (NULL);
-	}
+	if (invalid_syntax(line))
+		return (ft_free((void **)&line), NULL);
 	// new_line = expend(line, envp);
 	// if (!new_line)
 	// 	return (ft_free((void **)&line), NULL);

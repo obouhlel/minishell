@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:50:45 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 12:16:26 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:24:51 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	ft_free_strs(char ***strs)
 	*strs = NULL;
 }
 
-void ft_free_input(t_input *input)
+void	ft_free_input(t_input *input)
 {
-	t_input *tmp;
+	t_input	*tmp;
 
 	while (input)
 	{

@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 07:58:00 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 13:30:08 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:33:59 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int	minishell(t_envp *envp)
 		if (!shell.input)
 			continue ;
 		// print_input(shell.input);
-		// heredoc
-		// exec
 		// ft_free_input(shell.input);
 	}
 	return (EXIT_SUCCESS);

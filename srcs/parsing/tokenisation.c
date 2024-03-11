@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:54:22 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 12:44:02 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:34:29 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	set_token_for_current(t_input *current, t_input *previous)
 	int				i;
 
 	i = 0;
-	while(token[i])
+	while (token[i])
 	{
 		if (strcmp(current->str, token[i]) == 0)
 		{
 			if (current->next && current->next->token == WORD)
 			{
 				if (current->token == REDIR)
-					current->next->token = i + 6; // pour avoir le type de fichier
+					current->next->token = i + 6;
 				else
-					current->next->token = CMD; // sinon après un pipe
+					current->next->token = CMD;
 			}
-			current->token = i + 2; // pour avoir le pipe ou le type de redirection
+			current->token = i + 2;
 			break ;
 		}
 		i++;
@@ -96,7 +96,7 @@ t_input	*tokenisation(char *line)
 	parse = pre_tokenisation(line);
 	if (!parse)
 		return (NULL);
-	parse->to_join = false; // mettre le premier a false
+	parse->to_join = false;
 	set_prev_parsing(&parse);
 	if (join_parsing(&parse) == EXIT_FAILURE)
 	{

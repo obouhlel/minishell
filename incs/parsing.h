@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:09 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 12:40:41 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:29:10 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+
+# define SYNTAXE_ERROR "minishell: syntax error near unexpected token `%s'\n"
+
+enum e_quote
+{
+	SINGLE,
+	DOUBLE,
+};
 
 enum e_type
 {
@@ -42,7 +50,8 @@ typedef struct s_parsing
 	struct s_parsing	*next;
 }	t_parsing;
 
-char		have_invalid_token(char *line);
+// char		have_invalid_token(char *line);
+int			invalid_syntax(char *line);
 char		*expend(char *line, t_envp *envp);
 t_input		*tokenisation(char *line);
 

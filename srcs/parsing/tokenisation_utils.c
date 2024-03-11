@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 11:44:57 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 12:38:59 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:35:12 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +132,9 @@ char	*redir_string(char *line, int *i, char c, char *redir)
 	return (tmp);
 }
 
-void ft_free_parsing(t_parsing *parse, bool free_str)
+void	ft_free_parsing(t_parsing *parse, bool free_str)
 {
-	t_parsing *tmp;
+	t_parsing	*tmp;
 
 	while (parse)
 	{

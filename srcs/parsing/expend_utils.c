@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:35 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 12:24:53 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:32:24 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,18 @@ int	count_expend_size(char *line, t_envp *envp, size_t *i)
 
 size_t	count_size_new_line(char *line, t_envp *envp)
 {
-	size_t	i;
-	size_t	size;
-	bool	is_single;
-	bool	is_double;
-	int		check_size;
+	size_t		i;
+	size_t		size;
+	int			check_size;
+	t_expand	exp;
 
 	i = 0;
 	size = 0;
-	is_single = false;
-	is_double = false;
+	bzero(&exp, sizeof(t_expand));
 	while (line[i])
 	{
-		check_quote_state(line[i], &is_single, &is_double);
-		if (can_do_expend(line[i], line[i + 1], is_single))
+		check_quote_state(line[i], &exp.is_single, &exp.is_double);
+		if (can_do_expend(line[i], line[i + 1], exp.is_single))
 		{
 			check_size = count_expend_size(&line[++i], envp, &i);
 			if (check_size == -1)
@@ -106,7 +104,10 @@ size_t	count_size_new_line(char *line, t_envp *envp)
 			size += check_size;
 		}
 		else
-			(size++, i++);
+		{
+			size++;
+			i++;
+		}
 	}
 	return (size);
 }
