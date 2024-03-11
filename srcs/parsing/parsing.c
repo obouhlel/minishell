@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/11 12:36:46 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 13:31:55 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 t_input	*parsing(char *line, t_envp *envp)
 {
 	char		invalid_token;
-	char		*new_line;
+	// char		*new_line;
 	t_input		*input;
 
+	(void)envp;
+	input = NULL;
 	invalid_token = have_invalid_token(line);
 	if (invalid_token != '\0')
 	{
@@ -29,14 +31,14 @@ t_input	*parsing(char *line, t_envp *envp)
 				invalid_token);
 		return (NULL);
 	}
-	new_line = expend(line, envp);
-	if (!new_line)
-		return (ft_free((void **)&line), NULL);
+	// new_line = expend(line, envp);
+	// if (!new_line)
+	// 	return (ft_free((void **)&line), NULL);
 	ft_free((void **)&line);
-	input = tokenisation(new_line);
-	if (!input)
-		return (ft_free((void **)&new_line), NULL);
-	ft_free((void **)&new_line);
+	// input = tokenisation(new_line);
+	// if (!input)
+	// 	return (ft_free((void **)&new_line), NULL);
+	// ft_free((void **)&new_line);
 	return (input);
 }
 
@@ -78,6 +80,11 @@ char	*get_token(int token)
 
 void	print_input(t_input *input)
 {
+	if (!input)
+	{
+		printf("input is NULL\n");
+		return ;
+	}
 	while (input)
 	{
 		printf("%s | %s\n", input->str, get_token(input->token));
