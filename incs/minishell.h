@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 14:22:05 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:12:02 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,14 @@ enum e_token
 	CMD,
 	ARG,
 	PIPE,
-	HEREDOC,
-	REDIR_IN,
 	REDIR_OUT,
 	REDIR_APPEND,
-	DELIMETER,
-	INFILE,
+	REDIR_IN,
+	HEREDOC,
 	OUTFILE,
-	OUTFILE_APPEND,
-};
-
-enum e_type
-{
-	WORD,
-	REDIR,
-	PIPES,
+	APPEND,
+	INFILE,
+	DELIMETER,
 };
 
 typedef struct s_envp
@@ -53,12 +46,11 @@ typedef struct s_input
 {
 	char			*str;
 	int				token;
-	bool			to_join;
 	struct s_input	*next;
-}	t_input;
+}					t_input;
 
-int		minishell(t_envp *envp);
-t_input	*parsing(char *line, t_envp *envp);
+int			minishell(t_envp *envp);
+t_input		*parsing(char *line, t_envp *envp);
 
 // ENV
 t_envp	*envp_init(char **env);
@@ -76,12 +68,13 @@ size_t	ft_strlen(char *str);
 size_t	size_strs(char **strs);
 void	ft_free(void **ptr);
 void	ft_free_strs(char ***strs);
-void 	ft_free_input(t_input *input);
+void	ft_free_input(t_input *input);
 char	*ft_strdup(char *str);
 bool	is_alpha(char c);
 bool	is_alpha_num(char c);
 bool	is_whitespace(char c);
 bool	is_var(char c);
 bool	is_quote(char c);
+char	*ft_strjoin(char *str1, char *str2);
 
 #endif

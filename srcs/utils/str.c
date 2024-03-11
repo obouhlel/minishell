@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils-str.c                                        :+:      :+:    :+:   */
+/*   str.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stle-gof <stle-gof@student.42.fr>          +#+  +:+       +#+        */
+/*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 09:46:45 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/10 09:47:24 by stle-gof         ###   ########.fr       */
+/*   Updated: 2024/03/11 09:44:06 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,34 @@ char	*ft_strdup(char *str)
 		i++;
 	}
 	return (dup);
+}
+
+char	*ft_strjoin(char *str1, char *str2)
+{
+	char	*tmp;
+	char	*new_str;
+	size_t	i;
+	size_t	j;
+
+	tmp = ft_strdup(str1);
+	if (!tmp)
+		return (NULL);
+	new_str = calloc(sizeof(char), (ft_strlen(str1) + ft_strlen(str2) + 1));
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (str2[i])
+	{
+		new_str[i] = str2[i];
+		i++;
+	}
+	j = 0;
+	while (tmp[j])
+	{
+		new_str[i] = tmp[j];
+		i++;
+		j++;
+	}
+	free(tmp);
+	return (new_str);
 }

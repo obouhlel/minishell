@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 10:30:28 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/10 15:07:56 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/11 10:12:32 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 t_input	*parsing(char *line, t_envp *envp)
 {
-	char	invalid_token;
-	char	*new_line;
-	t_input	*input;
+	char		invalid_token;
+	char		*new_line;
+	t_input		*input;
 
 	invalid_token = have_invalid_token(line);
 	if (invalid_token != '\0')
