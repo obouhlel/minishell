@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/12 18:45:46 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:52:15 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,14 @@ typedef struct s_shell
 int			minishell(t_envp *envp);
 void		mode_signal(int mode);
 t_input		*parsing(char *line, t_envp *envp);
+
+// SIGNAL
+void		block_signal(int signal);
+void		unblock_signal(int signal);
+void		handler_quit(int signal);
+void		handler_end_heredoc(int signal);
+void		handler_end(int signal);
+
 
 // ENV
 t_envp		*envp_init(char **env);
