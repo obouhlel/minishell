@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 07:58:00 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 16:55:31 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:46:59 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	minishell(t_envp *envp)
 	shell.envp = envp;
 	while (1)
 	{
+		mode_signal(S_MAIN);
 		line = readline("> ");
 		if (!line)
 			return (EXIT_FAILURE);

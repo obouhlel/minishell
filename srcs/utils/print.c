@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/10 07:49:41 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/12 18:47:05 by obouhlel         ###   ########.fr       */
+/*   Created: 2024/03/12 18:40:07 by obouhlel          #+#    #+#             */
+/*   Updated: 2024/03/12 18:42:10 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(int ac, char **av, char **env)
+int ft_putchar_fd(char c, int fd)
 {
-	t_envp	*envp;
+    return (write(fd, &c, 1));
+}
 
-	(void)ac;
-	(void)av;
-	envp = envp_init(env);
-	if (!envp)
-		return (EXIT_FAILURE);
-	minishell(envp);
-	ft_free_envp(envp);
-	return (EXIT_SUCCESS);
+int ft_putstr_fd(char *s, int fd)
+{
+    return (write(fd, s, ft_strlen(s)));
+}
+
+int ft_putendl_fd(char *s, int fd)
+{
+    int ret;
+
+    ret = ft_putstr_fd(s, fd);
+    if (ret == -1)
+        return (ret);
+    ret = ft_putchar_fd('\n', fd);
+    if (ret == -1)
+        return (ret);
+    return (ret);
 }

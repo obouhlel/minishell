@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 08:22:05 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/11 15:56:51 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/12 18:45:46 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ enum e_token
 	DELIMETER,
 };
 
+enum e_signal
+{
+	S_MAIN,
+	S_CHILD,
+	S_PARENT,
+	S_HEREDOC,
+};
+
+enum e_std
+{
+	STDIN,
+	STDOUT,
+	STDERR,
+};
+
 typedef struct s_envp
 {
 	char			*key;
@@ -56,6 +71,7 @@ typedef struct s_shell
 }				t_shell;
 
 int			minishell(t_envp *envp);
+void		mode_signal(int mode);
 t_input		*parsing(char *line, t_envp *envp);
 
 // ENV
@@ -83,6 +99,9 @@ bool		is_var(char c);
 bool		is_quote(char c);
 char		*ft_strjoin(char *str1, char *str2);
 char		*ft_substr(char *str, size_t start, size_t len);
+int 		ft_putchar_fd(char c, int fd);
+int 		ft_putstr_fd(char *s, int fd);
+int 		ft_putendl_fd(char *s, int fd);
 void		print_input(t_input *input);
 
 #endif
