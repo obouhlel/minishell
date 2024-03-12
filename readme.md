@@ -1,1 +1,1 @@
-syntax error near unexpected token `TOKEN'
+
