@@ -6,7 +6,7 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:50:34 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/14 10:21:17 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:26:26 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "signals.h"
 #include <readline/readline.h>
 
-volatile int g_signal = 0;
+volatile int	g_signal = 0;
 
 void	block_signal(int signal)
 {
