@@ -6,11 +6,15 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:50:34 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/12 18:51:57 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:21:17 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "signals.h"
+#include <readline/readline.h>
+
+volatile int g_signal = 0;
 
 void	block_signal(int signal)
 {

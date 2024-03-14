@@ -6,14 +6,18 @@
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 07:58:00 by stle-gof          #+#    #+#             */
-/*   Updated: 2024/03/12 18:46:59 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:20:22 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "signals.h"
 #include <readline/history.h>
 #include <readline/readline.h>
 
+extern volatile int	g_signal;
+
+static
 bool	is_empty(char *str)
 {
 	size_t	i;

@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   signals.c                                          :+:      :+:    :+:   */
+/*   signal_mode.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouhlel <obouhlel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 18:33:11 by obouhlel          #+#    #+#             */
-/*   Updated: 2024/03/12 18:49:46 by obouhlel         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:19:08 by obouhlel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <signal.h>
-#include <readline/readline.h>
-
-volatile int	g_signal;
+#include "signals.h"
 
 static
 void	mode_signal_bis(int mode)
@@ -29,7 +26,7 @@ void	mode_signal_bis(int mode)
 	}
 	if (mode == S_HEREDOC)
 	{
-		act.sa_handler = &handler_end_spe;
+		act.sa_handler = &handler_end_heredoc;
 		sigaction(SIGINT, &act, NULL);
 		signal(SIGQUIT, SIG_IGN);
 	}

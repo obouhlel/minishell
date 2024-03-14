@@ -6,7 +6,7 @@ INC_PATH = ./incs/
 OBJ_PATH = ./objs/
 
 # Files
-SRCS = main.c minishell.c signals.c
+SRCS = main.c minishell.c signal_handler.c signal_mode.c 
 
 SRCS += utils/bool.c utils/str.c utils/free.c utils/len.c utils/print.c
 
